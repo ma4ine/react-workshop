@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
-const Nav = ( props ) => {
+const Nav = () => {
 	return (
-		<div>My name is { props.name }</div>
+		<div>
+			<Link to="/">Home</Link>
+			<Link to="/about">About</Link>
+			<Link to="/contact-us">Contact Us</Link>
+		</div>
 	)
 }
 
 export default Nav
-
