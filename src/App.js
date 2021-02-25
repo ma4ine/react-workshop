@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import { Router } from '@reach/router';
 import About from './components/About';
 import ContactUs from './components/ContactUs';
+import './style.css';
 
 export class App extends Component {
 	render() {

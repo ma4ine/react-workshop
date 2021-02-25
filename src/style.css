@@ -1,0 +1,10 @@
+.nav {
+	display: flex;
+	margin-bottom: 30px;
+}
+
+.nav--link {
+	padding: 20px;
+	margin: 10px;
+	border: 1px solid #000;
+}

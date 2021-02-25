@@ -6,12 +6,20 @@ module.exports = {
 	output: {
 		path: path.resolve( __dirname, 'dist' ),
 		filename: 'main.js',
+		publicPath: '/' // redirect all requests to index.html
 	},
+	devServer: {
+    historyApiFallback: true,
+  },
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				use: 'babel-loader',
+			},
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
 			}
 		]
 	},
