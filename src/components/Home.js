@@ -1,39 +1,25 @@
 import React, { Component } from 'react'
 
-export class Home extends Component {
+class Home extends Component {
 
 	constructor(props) {
 		super(props)
 	
 		this.state = {
-			 number: 0
+			 name: ''
 		}
 	}
 	
 
-	componentDidMount() {
-		this.myInterval = setInterval( () => {
-			this.setState( { number: 0 } )
-		}, 1000 )
-	}
-
-	shouldComponentUpdate( nextProps, nextState ) {
-		if ( nextState.number === this.state.number ) {
-				return false;
-		} else {
-			return true;
-		}
-	}
-
-	componentWillUnmount() {
-		clearInterval( this.myInterval )
+	handleOnClick = () => {
+		this.setState( { name: 'Richa' } )
 	}
 
 	render() {
-		console.log('rendered', this.state);
-		return (
+		console.log( 'rendered', this.props );
+		return(
 			<div>
-				This is home
+				<button onClick={ this.handleOnClick }>Click me!</button>
 			</div>
 		)
 	}
