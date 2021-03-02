@@ -5,7 +5,7 @@ import './style.css';
 class App extends Component {
 	render() {
 		return (
-			<Home data="Some data" />
+			<Home />
 		)
 	}
 }

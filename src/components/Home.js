@@ -1,36 +1,39 @@
 import React, { Component } from 'react'
 
-class Home extends Component {
+export class Home extends Component {
 
 	constructor(props) {
 		super(props)
 	
 		this.state = {
-			 name: 'ma4ine'
+			 number: 0
 		}
 	}
 	
 
-	static getDerivedStateFromProps( props, state ) {
-		console.log( 'getDerivedStateFromProps is called' );
-		console.log( 'props', props );
-		console.log( 'state', state );
-		return null;
+	componentDidMount() {
+		this.myInterval = setInterval( () => {
+			this.setState( { number: 0 } )
+		}, 1000 )
 	}
 
-	handleClickEvent = () => {
-		// this.setState( { name: 'Ryan' } ); // set state method
-		this.forceUpdate( () => {
-			console.log('The component is update');
-			this.setState( { name: 'Irene' } )
-		} )
+	shouldComponentUpdate( nextProps, nextState ) {
+		if ( nextState.number === this.state.number ) {
+				return false;
+		} else {
+			return true;
+		}
+	}
+
+	componentWillUnmount() {
+		clearInterval( this.myInterval )
 	}
 
 	render() {
-		console.log( 'render is called' );
+		console.log('rendered', this.state);
 		return (
 			<div>
-				 <button onClick={this.handleClickEvent}>Click</button>
+				This is home
 			</div>
 		)
 	}
