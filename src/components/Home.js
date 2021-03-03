@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { cloneElement, Component } from 'react'
 
 class Home extends Component {
 
@@ -6,16 +6,30 @@ class Home extends Component {
 		super(props)
 	
 		this.state = {
-			 name: ''
+			 age: ''
 		}
 	}
-	
 
 	handleOnClick = () => {
-		this.setState( { name: 'Richa' } )
+		this.setState( { 
+			age: 35 
+		} )
+	}
+
+	getSnapshotBeforeUpdate( prevProps, prevState ) {
+		console.log('getSnapshotBeforeUpdate called');
+		console.log('prevProps', prevProps);
+		console.log('prevState', prevState);
+		return 'xyz';
+	}
+
+	componentDidUpdate( prevProps, prevSate, snapshot ) {
+		console.log('componentDidUpdate called');
+		console.log('snapshot', snapshot)
 	}
 
 	render() {
+		console.log('render is called');
 		console.log( 'rendered', this.props );
 		return(
 			<div>
